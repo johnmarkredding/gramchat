@@ -134,7 +134,11 @@ input {
   width: 100%; }
 
 input[type="Submit"] {
-  cursor: pointer; }
+  cursor: pointer;
+  display: block;
+  border: 0; }
+  input[type="Submit"]:hover {
+    background-color: aquamarine; }
 
 ul {
   list-style: none;
@@ -156,16 +160,6 @@ ul {
   display: block;
   padding-top: 1rem;
   margin-bottom: .5rem; }
-
-button {
-  margin-top: 10px;
-  border: none;
-  box-shadow: 1px 1px 1px #34495e;
-  border-radius: 0;
-  background: #ecf0f1; }
-
-button:hover {
-  background: #bdc3c7; }
 
 .item {
   margin: 10px 0;

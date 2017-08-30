@@ -18,6 +18,11 @@ input {
 }
 input[type="Submit"] {
 	cursor: pointer;
+	display: block;
+	border: 0;
+	&:hover {
+		background-color: aquamarine;
+	}
 }
 ul {
 	list-style: none;
@@ -40,19 +45,6 @@ ul {
 	display: block;
 	padding-top: 1rem;
 	margin-bottom: .5rem;
-}
-
-
-button {
-margin-top: 10px;
-border: none;
-box-shadow: 1px 1px 1px #34495e;
-border-radius: 0;
-background: #ecf0f1;
-}
-
-button:hover {
-background: #bdc3c7;
 }
 
 .item {

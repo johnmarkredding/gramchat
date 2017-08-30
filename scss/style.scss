@@ -1,9 +1,46 @@
 @import 'reset';
+@import 'vars';
 
 
+html {
+	font-size: 16px;
+}
 body {
-	padding: 2.5%;
-	font-family: "Helvetica Neue";
+	height: 100vh;
+	width: 100vw;
+	font-family: "Roboto";
+}
+
+header {
+	height: 68px;
+	width: 100%;
+	background-color: white;
+	border-bottom: 1px $red-light solid;
+	box-shadow: 0 0 8px $grey-medium;
+	font-family: "Playfair Display";
+	font-size: 1.875rem;
+	font-style: italic;
+	font-weight: 700;
+	text-align: center;
+	padding-top: .85rem;
+	padding-bottom: .35rem;
+	position: fixed;
+	top: 0;
+}
+main {
+	margin-top: 68px;
+	margin-bottom: 81px;
+}
+footer {
+	height: auto;
+	width: 100%;
+	padding-bottom: 1rem;
+	background-color: white;
+	border-top: 1px $grey-medium solid;
+	box-shadow: 0 0 8px $grey-medium;
+	font-weight: 700;
+	position: fixed;
+	bottom: 0;
 }
 
 a {
@@ -12,27 +49,23 @@ a {
 h1 {
 	margin-bottom: 1rem;
 }
-input {
-	font: inherit;
-	width: 100%;
-}
-input[type="Submit"] {
-	cursor: pointer;
-	display: block;
-	border: 0;
-	&:hover {
-		background-color: aquamarine;
-	}
-}
-ul {
+
+#messages {
 	list-style: none;
 	line-height: 2;
-}
-#message-list {
 	width: 100%;
 	margin: auto;
+	li {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-bottom: 1px $grey-light solid;
+		&:nth-of-type(odd) {
+			background-color: $grey-lightest;
+		}
+	}
 }
-#message-list .name {
+#messages span {
 	font-weight: 700;
 }
 
@@ -46,10 +79,36 @@ ul {
 	padding-top: 1rem;
 	margin-bottom: .5rem;
 }
-
-.item {
-margin: 10px 0;
-padding: 5px;
-background: #95a5a6;
-border: 1px solid black;
+input {
+	font: inherit;
+	width: 100%;
+	padding: 0;
+}
+input[type="Text"] {
+	cursor: text;
+	height: 2rem;
+	width: 50%;
+	float: left;
+	border: 1px $grey-light solid;
+	border-radius: 0;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	&:focus, &:active {
+		outline: 0;
+		box-shadow: 0 0 8px $grey-light inset;
+	}
+}
+input[type="Submit"] {
+	height: 2rem;
+	width: 50%;
+	float: left;
+	cursor: pointer;
+	display: block;
+	background-color: $grey-light;
+	border: 0;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	&:hover {
+		box-shadow: 0 0 8px $grey-medium inset;
+	}
 }

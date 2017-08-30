@@ -1,0 +1,63 @@
+@import 'reset';
+
+
+body {
+	padding: 2.5%;
+	font-family: "Helvetica Neue";
+}
+
+a {
+	color: #00B7FF;
+}
+h1 {
+	margin-bottom: 1rem;
+}
+input {
+	font: inherit;
+	width: 100%;
+}
+input[type="Submit"] {
+	cursor: pointer;
+}
+ul {
+	list-style: none;
+	line-height: 2;
+}
+#message-list {
+	width: 100%;
+	margin: auto;
+}
+#message-list .name {
+	font-weight: 700;
+}
+
+#create-message {
+	width: 100%;
+	margin: auto;
+}
+#create-message label {
+	line-height: 1.4;
+	display: block;
+	padding-top: 1rem;
+	margin-bottom: .5rem;
+}
+
+
+button {
+margin-top: 10px;
+border: none;
+box-shadow: 1px 1px 1px #34495e;
+border-radius: 0;
+background: #ecf0f1;
+}
+
+button:hover {
+background: #bdc3c7;
+}
+
+.item {
+margin: 10px 0;
+padding: 5px;
+background: #95a5a6;
+border: 1px solid black;
+}

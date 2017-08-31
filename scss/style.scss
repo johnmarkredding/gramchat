@@ -1,93 +1,82 @@
 @import 'reset';
 @import 'vars';
+@import 'type';
 
-
-html {
-	font-size: 16px;
-}
 body {
-	height: 100vh;
-	width: 100vw;
-	font-family: "Roboto";
+	height: 100%;
+	width: 100%;
+	max-width: 768px;
+	margin: auto;
+	z-index: 20;
 }
 
+body > header, #messages li , body > footer {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
 header {
-	height: 68px;
-	width: 100%;
 	background-color: white;
-	border-bottom: 1px $red-light solid;
-	box-shadow: 0 0 8px $grey-medium;
-	font-family: "Playfair Display";
-	font-size: 1.875rem;
-	font-style: italic;
-	font-weight: 700;
-	text-align: center;
-	padding-top: .85rem;
-	padding-bottom: .35rem;
+	border-bottom: 0.0625rem $red-light solid;
+	box-shadow: 0 0 .5rem $grey-dark;
+	padding-top: 1.15rem;
+	padding-bottom: 1.15rem;
+	z-index: 2;
 	position: fixed;
 	top: 0;
+	height: 4.188rem;
+	width: 100%;
+	max-width: 768px;
 }
 main {
-	margin-top: 68px;
-	margin-bottom: 81px;
+	min-height: 100%;
+	padding-top: 4.188rem;
+	padding-bottom: 4.75rem;
+	z-index: 0;
 }
 footer {
-	height: auto;
-	width: 100%;
 	padding-bottom: 1rem;
 	background-color: white;
-	border-top: 1px $grey-medium solid;
-	box-shadow: 0 0 8px $grey-medium;
+	border-top: 0.0625rem $grey-medium solid;
+	box-shadow: 0 0 .5rem $grey-dark;
 	font-weight: 700;
+	z-index: 1;
 	position: fixed;
 	bottom: 0;
+	height: 4.75rem;
+	width: 100%;
+	max-width: 768px;
 }
-
-a {
-	color: #00B7FF;
-}
-h1 {
-	margin-bottom: 1rem;
-}
-
 #messages {
 	list-style: none;
-	line-height: 2;
 	width: 100%;
 	margin: auto;
 	li {
 		display: block;
 		width: 100%;
 		height: auto;
+		padding-top: 0.5rem;
+		padding-bottom: 0.625rem;
+		line-height: 1.1875;
 		border-bottom: 1px $grey-light solid;
 		&:nth-of-type(odd) {
 			background-color: $grey-lightest;
 		}
 	}
 }
-#messages span {
-	font-weight: 700;
-}
-
 #create-message {
+	font-weight: 400;
 	width: 100%;
-	margin: auto;
-}
-#create-message label {
-	line-height: 1.4;
-	display: block;
-	padding-top: 1rem;
-	margin-bottom: .5rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.625rem;
 }
 input {
-	font: inherit;
-	width: 100%;
-	padding: 0;
+	margin: 0;
 }
-input[type="Text"] {
+input[type="text"] {
+	padding-left: 0.25rem;
 	cursor: text;
 	height: 2rem;
-	width: 50%;
+	width: 75%;
 	float: left;
 	border: 1px $grey-light solid;
 	border-radius: 0;
@@ -98,9 +87,9 @@ input[type="Text"] {
 		box-shadow: 0 0 8px $grey-light inset;
 	}
 }
-input[type="Submit"] {
+input[type="submit"] {
 	height: 2rem;
-	width: 50%;
+	width: 25%;
 	float: left;
 	cursor: pointer;
 	display: block;

@@ -54,6 +54,7 @@ footer {
 		display: block;
 		width: 100%;
 		height: auto;
+		overflow: auto;
 		padding-top: 0.5rem;
 		padding-bottom: 0.625rem;
 		line-height: 1.1875;
@@ -63,7 +64,7 @@ footer {
 		}
 	}
 }
-#create-message {
+form {
 	font-weight: 400;
 	width: 100%;
 	padding-top: 0.5rem;

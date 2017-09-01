@@ -1,3 +1,6 @@
+/*jshint browser: true, esversion: 6*/
+/*global $, jQuery, alert, console, require, module, let, __dirname*/
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');

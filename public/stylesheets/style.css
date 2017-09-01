@@ -144,7 +144,7 @@ h3 {
   color: #989898;
   margin-bottom: .25rem; }
 
-label[for="message"] {
+label {
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: 1.1875;
@@ -202,6 +202,7 @@ footer {
     display: block;
     width: 100%;
     height: auto;
+    overflow: auto;
     padding-top: 0.5rem;
     padding-bottom: 0.625rem;
     line-height: 1.1875;
@@ -209,7 +210,7 @@ footer {
     #messages li:nth-of-type(odd) {
       background-color: #F6F6F6; }
 
-#create-message {
+form {
   font-weight: 400;
   width: 100%;
   padding-top: 0.5rem;

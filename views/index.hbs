@@ -6,24 +6,46 @@
 		<li><h3>JM Redding</h3>Hello!</li>
 		<li><h3>JM Redding</h3>Hello!</li>
 		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
-		<li><h3>JM Redding</h3>Hello!</li>
 	</ul>
 </main>
 <footer>
-	<form id="create-message" action="/send">
+	<form id="create-message">
 		<label for="message">Type Message</label>
-		<input type="text" name="message">
+		<input id="newMessage" type="text" name="message">
 		<input type="submit" name="send" value="Send">
 	</form>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script>
+	function appendMsgs(data) {
+		if (data.length) {
+			for (var i = 0; i < data.length; i++) {
+				var message = document.createElement('li');
+				message.innerHTML = '<h3>' + data[i].name + '</h3>' + data[i].message;
+				messages.appendChild(message);
+			}
+		}
+	}
+	function main () {
+		
+		var element = function(id) {
+			return document.getElementById(id);
+		}
+		
+		// Get elements
+		var messages = element('messages');
+		var newMessage = element('newMessage');
+		
+		// Connect to socket.io
+		var socket = io.connect('http://127.0.0.1:4000');
+		
+		// Check connection
+		if (socket !== undefined) {
+			console.log('Good connection');
+			
+			socket.on('output', appendMsgs);
+		}
+	}
+	
+	main();
+</script>

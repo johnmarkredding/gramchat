@@ -1,75 +1,38 @@
+/*jshint browser: true, esversion: 6*/
+/*global $, jQuery, alert, console, require, module, let, __dirname*/
+
 var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb').MongoClient;
+var client = require('socket.io').listen(4000).sockets;
 var objectId = require('mongodb').ObjectID;
 var assert = require('assert');
 
-var url = 'mongodb://localhost:27017/test';
+// Mongo DB URL
+var mongoURL = 'mongodb://localhost:27017/chic-chat';
 
-/* GET home page. */
+// Connect to our database
+mongo.connect(mongoURL, function(err, db) {
+	if (err) { throw err; }
+	console.log('Mongo Connected!');
+
+	// Connect to Socket.io
+	client.on('connection', function(socket) {
+		let chat = db.collection('chat');
+		
+		//Get chat data from collection
+		chat.find().limit(100).sort({_id:1}).toArray(function(err, res) {
+			if (err) { throw err; }
+			
+			// Emit Messages
+			socket.emit('output', res);
+		});
+	});
+});
+
+// GET home page
 router.get('/', function(req, res, next) {
 	res.render('index', {title: 'Chic Chat'});
-});
-
-router.get('/get-data', function(req, res, next) {
-	var resultArray = [];
-	mongo.connect(url, function(err, db) {
-		assert.equal(null, err);
-		var cursor = db.collection('user-data').find();
-		cursor.forEach(function(doc, err) {
-			assert.equal(null, err);
-			resultArray.push(doc);
-		}, function() {
-			db.close();
-			res.render('index', {items: resultArray});
-		});
-	});
-});
-router.post('/insert', function(req, res, next) {
-	var item = {
-		title: req.body.title,
-		content: req.body.content,
-		author: req.body.author
-	};
-	mongo.connect(url, function(err, db) {
-		assert.equal(null, err);
-		db.collection('user-data').insertOne(item, function(err, result) {
-			assert.equal(null, err);
-			console.log('Item Inserted');
-			db.close();
-		});
-	});
-	res.redirect('/');
-});
-router.post('/update', function(req, res, next) {
-	var item = {
-		title: req.body.title,
-		content: req.body.content,
-		author: req.body.author
-	};
-	var id = req.body.id;
-	
-	mongo.connect(url, function(err, db) {
-		assert.equal(null, err);
-		db.collection('user-data').updateOne({'_id': objectId(id)}, {$set: item}, function(err, result) {
-			assert.equal(null, err);
-			console.log('Item Updated');
-			db.close();
-		});
-	});
-	res.redirect('/');
-});
-router.post('/delete', function(req, res, next) {
-	var id = req.body.id;
-	mongo.connect(url, function(err, db) {
-		assert.equal(null, err);
-		db.collection('user-data').deleteOne({'_id': objectId(id)}, function(err, result) {
-			assert.equal(null, err);
-			console.log('Item Deleted');
-			db.close();
-		});
-	});
-	res.redirect('/');
 });
 
 module.exports = router;

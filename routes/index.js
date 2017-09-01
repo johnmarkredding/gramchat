@@ -1,18 +1,22 @@
 /*jshint browser: true, esversion: 6*/
 /*global $, jQuery, alert, console, require, module, let, __dirname*/
 
+// Required modules
 var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb').MongoClient;
-var client = require('socket.io').listen(4000).sockets;
-var objectId = require('mongodb').ObjectID;
+var io = require('socket.io').listen(8000).sockets;
 var assert = require('assert');
 
-// Mongo DB URL
-var mongoURL = 'mongodb://localhost:27017/chic-chat';
+//Project variables
+var users = [];
+var connections = [];
 
-// Connect to our database
-mongo.connect(mongoURL, function(err, db) {
+// Mongo DB URL
+//var mongoURL = 'mongodb://localhost:27017/chic-chat';
+
+// Connect to database
+/*mongo.connect(mongoURL, function(err, db) {
 	if (err) { throw err; }
 	console.log('Mongo Connected!');
 
@@ -28,10 +32,38 @@ mongo.connect(mongoURL, function(err, db) {
 			socket.emit('output', res);
 		});
 	});
+});*/
+
+
+// Connect to database
+
+// Socket.io connections
+io.sockets.on('connection', function handleConnections(socket) {
+	// Add new connection to array on connect
+	connections.push(socket);
+	console.log('Connected: %s sockets connected', connections.length);
+	
+	// Remove connection from array on disconnect
+	socket.on('disconnect', function removeConnection(data) {
+		connections.splice(connections.indexOf(socket), 1);
+		console.log('Disconnect: %s sockets connected', connections.length);
+	});
 });
+	
+	
+
+// Get data from database
+
+	// Send data with Socket.io
+
+// Receive data with Socket.io
+
+	//Put data in database
+
+
 
 // GET home page
-router.get('/', function(req, res, next) {
+router.get('/', function renderRoute(req, res, next) {
 	res.render('index', {title: 'Chic Chat'});
 });
 

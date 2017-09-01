@@ -9,15 +9,15 @@
 	</ul>
 </main>
 <footer>
-	<form id="create-message">
+	<form id="createMessage">
 		<label for="message">Type Message</label>
 		<input id="newMessage" type="text" name="message">
 		<input type="submit" name="send" value="Send">
 	</form>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-<script>
-	function appendMsgs(data) {
+<script src="/javascripts/client.js">
+	/*function appendMsgs(data) {
 		if (data.length) {
 			for (var i = 0; i < data.length; i++) {
 				var message = document.createElement('li');
@@ -47,5 +47,5 @@
 		}
 	}
 	
-	main();
+	main();*/
 </script>

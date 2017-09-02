@@ -8,6 +8,10 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+// Set port
+var port = process.env.PORT || 8080;
+
+
 //Set up route for static files
 app.use(express.static(__dirname + '/public'));
 
@@ -32,6 +36,6 @@ io.on('connection', function connectSocket(socket){
 
 
 
-http.listen(8000, function(){
+http.listen(port, function(){
   console.log('listening on *:8000');
 });

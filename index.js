@@ -37,5 +37,5 @@ io.on('connection', function connectSocket(socket){
 
 
 http.listen(port, function(){
-  console.log('listening on *:8000');
+  console.log('listening on *:8080');
 });

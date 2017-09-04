@@ -1,5 +1,5 @@
 # chic-chat
-## Real-time chat app, built on NodeJS, Sockets, and MongoDB. Hosted on Heroku.
+## Real-time chat app, built on NodeJS, Socket.io, and MongoDB. Hosted on Heroku.
 ### Tasks
 - Build login + authentication with Passport.
 	- Add routing for login.

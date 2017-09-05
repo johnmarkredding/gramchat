@@ -1,4 +1,4 @@
-# chic-chat
+# gramchat
 ## Real-time chat app, built on NodeJS, Socket.io, and MongoDB. Hosted on Heroku.
 ### Tasks
 - Build login + authentication with Passport.

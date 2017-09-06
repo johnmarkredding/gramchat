@@ -1,8 +1,8 @@
 {
-	"name": "chic-chat",
+	"name": "gramchat",
 	"version": "0.0.1",
 	"private": "true",
-	"description": "Fast Socket.io and NodeJS app.",
+	"description": "Real-time Socket.io and NodeJS chat app.",
 	"main": "index.js",
 	"scripts": {
 		"start": "node ./index.js"

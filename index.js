@@ -1,5 +1,5 @@
 /*jshint browser: true, esversion: 6*/
-/*global $, jQuery, alert, console, require, module, let, __dirname*/
+/*global $, jQuery, alert, console, require, module, let, __dirname, process*/
 
 // Require Dependencies
 var express = require('express');
@@ -21,20 +21,18 @@ app.set('view engine', 'hbs');
 
 //Render home page
 app.get('/', function(req, res){
-	res.render('index', {title: 'Chic Chat', description: 'Fast Socket.io and NodeJS chat app.'});
+	res.render('index', {title: 'Gramchat', description: 'Real-time Socket.io and NodeJS chat app.'});
 });
 
-io.on('connection', function connectSocket(socket){
+io.on('connection', function connectAction(socket){
 	console.log('Socket connected');
-	socket.on('chat message', function(msg, name){
+	socket.on('chat message', function emitMessage(msg, name){
 		io.emit('chat message', name, msg);
 	});
-	socket.on('disconnect', function disconnectSocket(){
+	socket.on('disconnect', function disconnectStatus(){
 		console.log('Socket disconnected');
 	});
 });
-
-
 
 http.listen(port, function(){
   console.log('listening on *:8080');

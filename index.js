@@ -27,7 +27,11 @@ app.get('/', function(req, res){
 io.on('connection', function connectAction(socket){
 	console.log('Socket connected');
 	socket.on('chat message', function emitMessage(msg, name){
-		io.emit('chat message', name, msg);
+		if (!msg) {
+			
+		} else {
+			io.emit('chat message', msg, name = 'Anonymous');
+		}
 	});
 	socket.on('disconnect', function disconnectStatus(){
 		console.log('Socket disconnected');

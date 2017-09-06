@@ -10,13 +10,7 @@ $(function () {
 		$('#message').val('');
 		return false;
 	});
-	socket.on('chat message', function(name, msg){
-		if (!name) {
-			name = 'Anonymous';
-		}
-		if (!msg) {
-			msg = 'None';
-		}
+	socket.on('chat message', function(msg, name) {	
 		var newMessage = document.createElement('li');
 		newMessage.innerHTML = '<h3>' + name + '</h3>' + msg;
 		$('#messages').append(newMessage);

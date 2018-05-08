@@ -1,15 +1,15 @@
 /*jshint browser: true, esversion: 6*/
-/*global $, jQuery, alert, console, require, module, let, __dirname, process*/
+/*global $, jQuery, alert, console, require, module, __dirname, process*/
 
 // Require Dependencies
-var express = require('express');
-var hbs = require('express-handlebars');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+let express = require('express');
+let hbs = require('express-handlebars');
+let app = express();
+let http = require('http').Server(app);
+let io = require('socket.io')(http);
 
 // Set port
-var port = process.env.PORT || 8080;
+let port = process.env.PORT || 8080;
 
 
 //Set up route for static files
@@ -38,6 +38,6 @@ io.on('connection', function connectAction(socket){
 	});
 });
 
-http.listen(port, function(){
+http.listen(port, () => {
   console.log('listening on *:8080');
 });

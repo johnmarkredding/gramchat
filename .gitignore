@@ -134,3 +134,6 @@ dist
 *.key
 *.crt
 *.cer
+
+
+.DS_Store

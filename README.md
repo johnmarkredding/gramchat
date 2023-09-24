@@ -1,5 +1,5 @@
 # gramchat
-## Real-time chat app, built on NodeJS and Socket.io. Hosted on Heroku. Use 2 tabs to test.
+## Real-time chat app, built on NodeJS and Socket.io
 ### Tasks
 - Build login + authentication with Passport.
 	- Add routing for login.
